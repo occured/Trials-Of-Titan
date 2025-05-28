@@ -1,6 +1,6 @@
 # Trials of Titan
 
-`Source is provided as-is and not currently maintained`
+`Source is provided as-is and is not currently maintained`
 
 ## Setup
 
