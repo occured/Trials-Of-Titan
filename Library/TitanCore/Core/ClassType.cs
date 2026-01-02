@@ -16,6 +16,7 @@ namespace TitanCore.Core
         Bladeweaver = 0x8,
         Minister = 0x9,
         Brewer = 0xa,
-        Sharpshooter = 0xb
+        Sharpshooter = 0xb,
+        Sentinel = 0xc
     }
 }

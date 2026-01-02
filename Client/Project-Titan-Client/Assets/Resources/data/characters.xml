@@ -421,4 +421,47 @@
 
     <Sfx type="shoot">bow-1</Sfx>
   </Object>
+
+  <Object id="0xc" name="Sentinel">
+    <Type>Character</Type>
+
+    <Slots>Sword, HeavyArmor, Accessory, Accessory</Slots>
+
+    <DefaultItems>0x100</DefaultItems>
+
+    <Description>The Sentinel is a frontline defender who converts rage into fortified armor and stronger strikes. Activate the ability to gain a brief defensive stance that reduces incoming damage and bolsters nearby allies.</Description>
+
+    <Texture>
+      <Type>Character</Type>
+      <Set>Warrior</Set>
+    </Texture>
+
+    <Stat type="MaxHealth">
+      <Base>60</Base>
+      <Max>525</Max>
+      <Increase>30,30,30,30,30,30,35,35,35,35,35,35</Increase>
+    </Stat>
+    <Stat type="Speed">
+      <Base>1</Base>
+      <Max>70</Max>
+      <Increase>2,2,2,2,2,2,2,2,2,2,2,2</Increase>
+    </Stat>
+    <Stat type="Attack">
+      <Base>1</Base>
+      <Max>70</Max>
+      <Increase>2,2,2,2,2,2,2,2,2,2,2,2</Increase>
+    </Stat>
+    <Stat type="Defense">
+      <Base>1</Base>
+      <Max>32</Max>
+      <Increase>0,1,0,0,1,0,0,1,0,1,0,0</Increase>
+    </Stat>
+    <Stat type="Vigor">
+      <Base>1</Base>
+      <Max>70</Max>
+      <Increase>3,2,3,3,2,3,3,2,2,2,2,2</Increase>
+    </Stat>
+
+    <Sfx type="shoot">sword-1</Sfx>
+  </Object>
 </Objects>
