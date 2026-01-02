@@ -28,6 +28,7 @@ using Utils.NET.Net.Web;
 using Utils.NET.Utils;
 using WebServer.Iap;
 using WebServer.Leaderboard;
+using WebServer.Configuration;
 using WebServer.Servers;
 
 namespace WebServer
@@ -35,9 +36,9 @@ namespace WebServer
     public class WebServer
     {
 #if DEBUG
-        private const string Prefix = "http://*:8443/";
+        private static readonly string Prefix = EndpointConfiguration.GetWebPrefix(true);
 #else
-        private const string Prefix = "https://*.trialsoftitan.com/";
+        private static readonly string Prefix = EndpointConfiguration.GetWebPrefix(false);
 #endif
 
         private const string ServerName = "Web";
@@ -61,11 +62,15 @@ namespace WebServer
 
         //private IapManager iapManager;
 
+        private readonly string dynamoEndpoint;
+
         public WebServer()
         {
             broadcastListener = new BroadcastListener();
 
             //iapManager = new IapManager();
+
+            dynamoEndpoint = EndpointConfiguration.GetDynamoDbEndpoint();
 
             listener = new WebListener(Prefix);
             listener.AddHandler("privacy", HandlePrivacyPolicy);
@@ -98,6 +103,8 @@ namespace WebServer
             listener.Start();
 
             broadcastListener.Start();
+
+            Log.Info($"Using DynamoDB endpoint: {dynamoEndpoint}");
 
             LoadLeaderboards();
         }

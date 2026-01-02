@@ -848,6 +848,10 @@ public class Player : Character
                 world.PlayNomadAbilityEffect(new NomadAbilityWorldEffect(gameId, target));
                 rage -= AbilityFunctions.Nomad.Ability_Cost;
                 break;
+            case ClassType.Sentinel:
+                var sentinelCost = AbilityFunctions.Sentinel.GetRageCost((byte)rage);
+                rage -= sentinelCost;
+                break;
         }
 
         cooldownDuration = AbilityFunctions.GetAbilityCooldownMs((byte)rage, info.id);

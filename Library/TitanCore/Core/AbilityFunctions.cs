@@ -48,6 +48,8 @@ namespace TitanCore.Core
                     return 1000;
                 case ClassType.Nomad:
                     return 2000;
+                case ClassType.Sentinel:
+                    return 12000;
                 default:
                     return int.MaxValue;
             }
@@ -93,6 +95,10 @@ namespace TitanCore.Core
                             list.Add(new AbilityEffect(StatusEffect.Healing, 1000 + (uint)(8000 * rageScalar), 6));
                             break;
                     }
+                    break;
+                case ClassType.Sentinel:
+                    list.Add(new AbilityEffect(StatusEffect.Fortified, (uint)(2000 + 6000 * rageScalar * attackScalar), 0));
+                    list.Add(new AbilityEffect(StatusEffect.AttackBonus, (uint)(1500 + 4000 * rageScalar), 4 + 2 * rageScalar));
                     break;
                 default:
                     break;
@@ -268,6 +274,14 @@ namespace TitanCore.Core
             public const int Ability_Cost = 35;
 
             public const float Charm_Air_Time = 0.7f;
+        }
+
+        public static class Sentinel
+        {
+            public static byte GetRageCost(byte availableRage)
+            {
+                return (byte)Math.Min(availableRage, 50);
+            }
         }
     }
 }
